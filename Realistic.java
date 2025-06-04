@@ -10,7 +10,7 @@ import java.util.Arrays; // for printing array
 public class Realistic {
 
     /** Set up our test array. */
-    static int[] arr = { 10, -5, 11, 2 };
+    private static int[] arr = { 10, -5, 11, 2 };
 
     /**
      * Scan the entire array to find and remove its smallest value.
@@ -18,9 +18,11 @@ public class Realistic {
      * 
      * @return int with the smallest value in array arr
      */
-    public static int getSmallest() {
+    public static Integer getSmallest() { //change int to Integer to assign the Integer to a value or null. You will need to return the Integer  
         // Assume smallest is first element
-        int smallest_index = 0;
+          Integer result = null; // Declare result as null for an empty array.
+        if (arr.length != 0) { //If array length is not empty return set smallest number to be the first element in array.
+            int smallest_index = 0;            // Assume smallest is first element
         // Scan the remaining elements, replacing the position of the smallest element
         // with the position of any element found to be smaller.
         for (int i = 1; i < arr.length; i++) {
@@ -28,10 +30,11 @@ public class Realistic {
                 // found new smallest, update index
                 smallest_index = i;
             }
+
         }
         // When loop is done, smallest_index points to smallest element. Save it in a
         // variable so that we can return its value when we are done.
-        int result = arr[smallest_index];
+        result = arr[smallest_index]; //Save smallest value 
         // Prepare to shrink the processed array by one element, effectively removing
         // its smallest element. A temporary array will hold the remaining elements.
         int[] temporary = new int[arr.length - 1];
@@ -67,8 +70,10 @@ public class Realistic {
         }
         // replace principal array with temporary array.
         arr = temporary;
+     }
         return result; // smallest element
-    } // method getSmallest
+    }
+ // method getSmallest
 
     /**
      * Adds a new element to the end of the principal array arr after it resizes up
@@ -93,7 +98,7 @@ public class Realistic {
     public static void main(String[] args) {
         System.out.printf("\n\nArray before removal of smallest element: %s",
                 Arrays.toString(arr));
-        System.out.printf("\nSmallest element found: %d", getSmallest());
+        System.out.printf("\nSmallest element found: %s", getSmallest());
         System.out.printf("\nArray after removal of smallest element: %s\n\n",
                 Arrays.toString(arr));
     } // method main
