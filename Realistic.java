@@ -3,6 +3,10 @@ import java.util.Arrays; // for printing array
 /**
  * A class to demonstrate minimum heap operations using arrays
  */
+/* HW PART I:
+ *array.length equals the number of elements in that array list and these elements are stored in the temporary array list. 
+ *After a value is assigned, it is added to the end of the temp array because the temp array has expanded by one in length.
+*/
 public class Realistic {
 
     /** Set up our test array. */
@@ -77,10 +81,10 @@ public class Realistic {
         int[] temporary = new int[arr.length + 1];
         // Copy the principal array to the temporary one
         for (int i = 0; i < arr.length; i++) {
-            temporary[i] = arr[i];
+            temporary[i] = arr[i]; 
         }
         // Place the new value to the end of the temporary array.
-        temporary[arr.length] = value;
+        temporary[arr.length] = value; //this is line 83 before I added additional comment lines. Use for HW PART I.
         // Replace principal array with temporary array and we are done
         arr = temporary;
     } // method add
@@ -93,4 +97,4 @@ public class Realistic {
         System.out.printf("\nArray after removal of smallest element: %s\n\n",
                 Arrays.toString(arr));
     } // method main
-} // class Realistic
+ } // class Realistic
